@@ -1,0 +1,32 @@
+version: '3.1'
+services:
+
+  front-end:
+    build:
+      context: ../incsync_frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+
+  whiteboard-service:
+    build:
+      context: ./whiteboard
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8081
+
+  websocket-service:
+    build:
+      context: ./websocket
+      dockerfile: Dockerfile
+    ports:
+      - 8083:8083
+
+
