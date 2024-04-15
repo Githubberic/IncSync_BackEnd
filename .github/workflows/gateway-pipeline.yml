@@ -27,8 +27,8 @@ jobs:
 
       - name: Execute Gradle build
         run: |
-          chmod +x ./gradlew
-          ./gradlew :gateway:bootJar
+          chmod +x ../gradlew
+          ../gradlew :gateway:bootJar
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
