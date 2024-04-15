@@ -1,5 +1,5 @@
 server:
      port: 8081
 websocket:
-  hostname: localhost
+  hostname: 0.0.0.0
   port: 8082
