@@ -36,7 +36,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t drprofessorowl/gateway:latest -f Dockerfile .
+        run: docker build -t drprofessorowl/gateway:latest .
 
       - name: Push Docker image to Docker Hub
         run: docker push drprofessorowl/gateway:latest
