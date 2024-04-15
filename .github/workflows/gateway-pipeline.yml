@@ -56,9 +56,6 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-      - name: Print contents of the gateway directory
-        run: ls -al gateway
-
       - name: Print current directory
         run: pwd
 
