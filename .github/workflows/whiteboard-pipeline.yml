@@ -4,7 +4,7 @@ on:
   push:
     paths: 
       - "whiteboard/**"
-      - ".github/workflows/whiteboard-pipeline.yml/"
+      - ".github/workflows/**"
 
 permissions:
   contents: read
