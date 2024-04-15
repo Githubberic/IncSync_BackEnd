@@ -2,7 +2,8 @@ name: Docker CI with Gradle
 
 on:
   push:
-    branches: [ "main" ]
+    paths: 
+      - "gateway/**"
 
 permissions:
   contents: read
@@ -51,9 +52,6 @@ jobs:
     
       - name: Checkout code
         uses: actions/checkout@v3
-        
-      - name: Print contents of current directory
-        run: ls -al
     
       - name: Download build artifacts
         uses: actions/download-artifact@v3
