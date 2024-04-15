@@ -56,9 +56,6 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-      - name: Print current directory
-        run: pwd
-
       - name: Build and push Docker image
         run: |
           docker build -t drprofessorowl/gateway:latest -f Dockerfile .
