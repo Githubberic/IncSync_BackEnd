@@ -53,5 +53,6 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t drprofessorowl/gateway:latest -f gateway/Dockerfile .
+          cd gateway  # Navigate to the gateway directory
+          docker build -t drprofessorowl/gateway:latest -f Dockerfile .
           docker push drprofessorowl/gateway:latest
