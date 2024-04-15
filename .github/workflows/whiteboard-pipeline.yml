@@ -1,0 +1,71 @@
+name: Docker CI with Gradle
+
+on:
+  push:
+    paths: 
+      - "whiteboard/**"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: whiteboard
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Execute Gradle build
+        run: |
+          chmod +x ../gradlew
+          ../gradlew :whiteboard:bootJar
+
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: whiteboard-artifact
+          path: whiteboard/build/libs
+
+      - name: Print contents of current directory
+        run: ls -al
+  
+  build-image:
+
+    runs-on: ubuntu-latest
+    needs: build
+    defaults:
+      run:
+        working-directory: whiteboard
+    
+    steps:
+    
+      - name: Checkout code
+        uses: actions/checkout@v3
+    
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: whiteboard-artifact
+          path: whiteboard/build/libs
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t drprofessorowl/whiteboard:latest -f Dockerfile .
+          docker push drprofessorowl/whiteboard:latest
