@@ -43,6 +43,9 @@ jobs:
 
     runs-on: ubuntu-latest
     needs: build
+    defaults:
+      run:
+        working-directory: gateway
     
     steps:
       - name: Download build artifacts
@@ -67,6 +70,5 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          cd gateway
           docker build -t drprofessorowl/gateway:latest -f Dockerfile .
           docker push drprofessorowl/gateway:latest
