@@ -35,8 +35,11 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
+      - name: Navigate to gateway module directory
+        run: cd gateway
+
       - name: Build Docker image
-        run: docker build -t drprofessorowl/gateway:latest .
+        run: docker build -t drprofessorowl/gateway:latest -f Dockerfile .
 
       - name: Push Docker image to Docker Hub
         run: docker push drprofessorowl/gateway:latest
