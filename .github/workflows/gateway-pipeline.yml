@@ -44,9 +44,6 @@ jobs:
         with:
           name: gateway-artifact
           path: gateway
-
-      - name: Print Dockerfile contents
-        run: cat gateway/Dockerfile
       
       - name: Print current directory
         run: pwd
