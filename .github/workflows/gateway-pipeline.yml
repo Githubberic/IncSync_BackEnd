@@ -2,19 +2,15 @@ name: Docker CI with Gradle
 
 on:
   push:
-    branches: [ "main" ]
+    paths:
+      - "gateway/**"
 
 permissions:
   contents: read
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: gateway
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -27,8 +23,8 @@ jobs:
 
       - name: Make gradlew executable
         run: |
-          chmod +x ../gradlew
-          ../gradlew :gateway:bootJar
+          chmod +x ./gradlew
+          ./gradlew :gateway:bootJar
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
@@ -40,10 +36,7 @@ jobs:
 
     runs-on: ubuntu-latest
     needs: build
-    defaults:
-      run:
-        working-directory: gateway
-
+    
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v3
@@ -59,5 +52,5 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t drprofessorowl/gateway:latest -f IncSync_BackEnd/gateway/Dockerfile .
+          docker build -t drprofessorowl/gateway:latest -f gateway/Dockerfile .
           docker push drprofessorowl/gateway:latest
