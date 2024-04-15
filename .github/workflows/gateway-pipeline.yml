@@ -60,3 +60,4 @@ jobs:
         run: |
           docker build -t drprofessorowl/gateway:latest -f gateway/Dockerfile .
           docker push drprofessorowl/gateway:latest
+        working-directory: gateway/build/libs
