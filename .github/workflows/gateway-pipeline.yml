@@ -25,16 +25,16 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Execute Gradle build
+      - name: Make gradlew executable
         run: |
-          chmod +x ./gradlew
-          ./gradlew bootJar
+          chmod +x ../gradlew
+          ../gradlew :gateway:bootJar
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: gateway-artifact
-          path: ./build/libs/gateway-0.0.1-SNAPSHOT.jar 
+          path: ./build/libs/
   
   build-image:
 
