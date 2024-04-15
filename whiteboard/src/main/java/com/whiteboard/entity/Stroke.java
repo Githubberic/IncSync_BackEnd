@@ -7,9 +7,18 @@ public class Stroke {
     private int y2;
     private String color;
     private int thickness;
+    private String whiteboardId;
 
     public int getThickness() {
         return thickness;
+    }
+
+    public String getWhiteboardId() {
+        return whiteboardId;
+    }
+
+    public void setWhiteboardId(String whiteboardId) {
+        this.whiteboardId = whiteboardId;
     }
 
     public void setThickness(int thickness) {

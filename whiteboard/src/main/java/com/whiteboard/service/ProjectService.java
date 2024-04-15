@@ -18,7 +18,6 @@ public class ProjectService {
 
     private static final String COLLECTION_NAME = "project";
     private static Firestore firestore;
-    private final Gson gson = new Gson();
 
     private static Firestore getFirestore() {
         if (firestore == null) {
@@ -60,8 +59,6 @@ public class ProjectService {
             return null;
         }
     }
-
-
 
     public List<Stroke> updateProjectContent(String id, Project project) {
 

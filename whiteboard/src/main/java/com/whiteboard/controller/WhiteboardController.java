@@ -21,11 +21,6 @@ public class WhiteboardController {
     @Autowired
     private ProjectService projectService;
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello World";
-    }
-
     //Create whiteboard
     @PostMapping("/create")
     public String saveProject(@RequestBody Project project) throws ExecutionException, InterruptedException {

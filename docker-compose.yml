@@ -22,11 +22,11 @@ services:
     ports:
       - 8081:8081
 
-  websocket-service:
-    build:
-      context: ./websocket
-      dockerfile: Dockerfile
-    ports:
-      - 8083:8083
+#  websocket-service:
+#    build:
+#      context: ./websocket
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8083:8083
 
 
