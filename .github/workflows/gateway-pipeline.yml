@@ -4,7 +4,7 @@ on:
   push:
     paths: 
       - "gateway/**"
-      - ".github/workflows/**"
+      - ".github/workflows/gateway-pipeline.yml"
 
 permissions:
   contents: read
