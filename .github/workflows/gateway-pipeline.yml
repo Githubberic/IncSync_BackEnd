@@ -3,7 +3,7 @@ name: Docker CI with Gradle
 on:
   push:
     paths: 
-      - "${{ env.repository }}/**"
+      - "gateway/**"
       - ".github/workflows/**"
 
 permissions:
