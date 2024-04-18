@@ -4,6 +4,7 @@ on:
   push:
     paths: 
       - "${{ env.repository }}/**"
+      - ".github/workflows/**"
 
 permissions:
   contents: read
