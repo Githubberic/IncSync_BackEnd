@@ -1,10 +1,10 @@
-name: Docker CI with Gradle
+name: Whiteboard Pipeline
 
 on:
   push:
     paths: 
       - "whiteboard/**"
-      - ".github/workflows/**"
+      - ".github/workflows/whiteboard-pipeline.yml"
 
 permissions:
   contents: read
