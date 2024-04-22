@@ -12,7 +12,7 @@ sonar {
         property "sonar.projectKey", "githubberic_IncSync_BackEnd_Gateway"
         property "sonar.organization", "githubberic"
         property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.token", "a81851d50f62d8c92669d45a63dc345cffc60372"
+        property "sonar.token", ""
     }
 }
 
