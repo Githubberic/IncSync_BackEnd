@@ -1,4 +1,4 @@
-name: Whiteboard Pipeline
+name: Gateway Pipeline
 
 on:
   push:
