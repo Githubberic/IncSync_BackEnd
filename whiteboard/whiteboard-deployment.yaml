@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
         - name: whiteboard-service
-          image: whiteboard-service:latest
+          image: drprofessorowl/whiteboard:latest
           ports:
             - containerPort: 8081
-          imagePullPolicy: Never
+          imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating

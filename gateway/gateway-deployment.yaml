@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: gateway
-          image: gateway:latest
+          image: drprofessorowl/gateway:latest
           ports:
             - containerPort: 8080
           imagePullPolicy: IfNotPresent # Adjust this based on your image availability
