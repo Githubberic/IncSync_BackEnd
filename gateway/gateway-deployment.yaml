@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-deployment
+spec:
+  selector:
+    matchLabels:
+      app: gateway-service-k8s
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gateway-service-k8s
+    spec:
+      containers:
+        - name: gateway
+          image: gateway:latest
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: IfNotPresent # Adjust this based on your image availability
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway-service
+spec:
+  selector:
+    app: gateway-service-k8s
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer # type of the service.
