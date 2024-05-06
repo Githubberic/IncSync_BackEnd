@@ -33,7 +33,7 @@ jobs:
       - name: Execute Gradle build
         run: |
           chmod +x ../gradlew
-          ../gradlew :${{ env.repository }}:bootJar'
+          ../gradlew :${{ env.repository }}:bootJar
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v4
