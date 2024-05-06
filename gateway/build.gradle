@@ -16,6 +16,15 @@ sonar {
     }
 }
 
+bootJar {
+    // Set the active profile for the Spring Boot application JAR
+    manifest {
+        attributes(
+                'Spring-Profile': 'prod'
+        )
+    }
+}
+
 
 ext {
     set('springCloudVersion', "2023.0.1")
