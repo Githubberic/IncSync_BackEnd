@@ -1,6 +1,10 @@
 spring:
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
@@ -11,6 +15,6 @@ spring:
             allowedHeaders: "*"
       routes:
         - id: whiteboard-route
-          uri: ${WHITEBOARD_ROUTE_URI:http://whiteboard-service:8081}
+          uri: lb://whiteboard-service
           predicates:
             - Path=/whiteboard/**
