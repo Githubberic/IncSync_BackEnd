@@ -25,7 +25,7 @@ public class WhiteboardController {
 
     public String test() {
 
-        return "Hello from the whiteboard service";
+        return "Hello from the whiteboard service!";
 
     }
 
