@@ -1,6 +1,9 @@
 spring:
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
@@ -14,3 +17,7 @@ spring:
           uri: ${WHITEBOARD_ROUTE_URI:http://whiteboard-service:8081}
           predicates:
             - Path=/whiteboard/**
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.cloud.loadbalancer: TRACE
