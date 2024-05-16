@@ -4,7 +4,7 @@ on:
   push:
     paths: 
       - "eureka_discovery/**"
-      - ".github/workflows/eureka_discovery-pipeline.yml"
+      - ".github/workflows/eureka_discovery-pipeline.yaml"
 
 permissions:
   contents: read
