@@ -4,7 +4,6 @@ spring:
       discovery:
         locator:
           enabled: true
-          lowerCaseServiceId: true
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
@@ -14,7 +13,7 @@ spring:
             allowedMethods: "*"
             allowedHeaders: "*"
       routes:
-        - id: whiteboard-route
+        - id: whiteboard-service
           uri: lb://whiteboard-service
           predicates:
             - Path=/whiteboard/**

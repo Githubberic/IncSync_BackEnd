@@ -5,12 +5,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app:  whiteboard-service-k8s
+      app:  whiteboard-service
   replicas: 3
   template:
     metadata:
       labels:
-        app:  whiteboard-service-k8s
+        app:  whiteboard-service
     spec:
       containers:
         - name: whiteboard-service
@@ -25,7 +25,7 @@ metadata: # Metadata of the resource kind we are creating
   name: whiteboard-service
 spec:
   selector:
-    app: whiteboard-service-k8s
+    app: whiteboard-service
   ports:
     - protocol: "TCP"
       port: 8081 # The port that the service is running on in the cluster
