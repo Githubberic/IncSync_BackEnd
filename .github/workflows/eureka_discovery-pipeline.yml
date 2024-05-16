@@ -1,16 +1,16 @@
-name: Whiteboard Pipeline
+name: Eureka Discovery Pipeline
 
 on:
   push:
     paths: 
-      - "whiteboard/**"
-      - ".github/workflows/whiteboard-pipeline.yml"
+      - "eureka_discovery/**"
+      - ".github/workflows/eureka_discovery-pipeline.yml"
 
 permissions:
   contents: read
 
 env:
-  repository: whiteboard
+  repository: eureka_discovery
 
 jobs:
   build:
