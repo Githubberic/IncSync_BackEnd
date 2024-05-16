@@ -3,7 +3,10 @@ spring:
     name: whiteboard-service
 server:
      port: 8081
+
 eureka:
+  instance:
+    preferIpAddress: true
   client:
     serviceUrl:
       defaultZone: http://eureka-service:8761/eureka

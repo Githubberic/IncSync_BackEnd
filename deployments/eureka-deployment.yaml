@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eureka_discovery-deployment
+  name: eureka-deployment
 spec:
   selector:
     matchLabels:
-      app:  eureka_discovery
+      app:  eureka
   replicas: 1
   template:
     metadata:
       labels:
-        app:  eureka_discovery
+        app:  eureka
     spec:
       containers:
-        - name: eureka_discovery
+        - name: eureka
           image: drprofessorowl/eureka_discovery:latest
           ports:
             - containerPort: 8761
@@ -22,10 +22,10 @@ spec:
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating
 metadata: # Metadata of the resource kind we are creating
-  name: eureka_discovery-service
+  name: eureka-service
 spec:
   selector:
-    app: eureka_discovery
+    app: eureka
   ports:
     - protocol: "TCP"
       port: 8761 # The port that the service is running on in the cluster
