@@ -1,14 +1,15 @@
-package com.whiteboard;
+package com.eureka_discovery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
-@EnableDiscoveryClient
-public class WhiteboardApplication {
+@EnableEurekaServer
+public class EurekaDiscoveryApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WhiteboardApplication.class, args);
+        SpringApplication.run(EurekaDiscoveryApplication.class, args);
     }
 }

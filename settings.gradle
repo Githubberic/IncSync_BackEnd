@@ -1,4 +1,5 @@
 rootProject.name = 'IncSync_BackEnd'
 include 'gateway'
 include 'whiteboard'
+include 'eureka_discovery'
 
