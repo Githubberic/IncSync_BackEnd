@@ -5,12 +5,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: gateway-service-k8s
+      app: gateway
   replicas: 1
   template:
     metadata:
       labels:
-        app: gateway-service-k8s
+        app: gateway
     spec:
       containers:
         - name: gateway
@@ -25,7 +25,7 @@ metadata:
   name: gateway-service
 spec:
   selector:
-    app: gateway-service-k8s
+    app: gateway
   ports:
     - protocol: TCP
       port: 8080

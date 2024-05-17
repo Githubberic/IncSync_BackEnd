@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: whiteboard-service
 server:
      port: 8081
 websocket:
