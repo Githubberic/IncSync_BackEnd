@@ -15,6 +15,6 @@ spring:
             allowedHeaders: "*"
       routes:
         - id: whiteboard-service
-          uri: http://whiteboard-service:8081/
+          uri: lb://whiteboard-service
           predicates:
             - Path=/whiteboard/**
