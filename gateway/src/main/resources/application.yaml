@@ -8,7 +8,7 @@ spring:
       discovery:
         enabled: true
         all-namespaces: true
-        discovery-server-url: http://discovery-server.default.svc.cluster.local:8079
+        discovery-server-url: http://spring-cloud-kubernetes-discoveryserver.default.svc.cluster.local:8761
     gateway:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
