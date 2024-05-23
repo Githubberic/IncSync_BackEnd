@@ -8,7 +8,7 @@ spring:
       discovery:
         enabled: true
         all-namespaces: true
-        discovery-server-url: https://localhost:8443
+        discovery-server-url: https://192.168.49.2:8443
     gateway:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
