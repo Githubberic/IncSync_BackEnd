@@ -1,12 +1,24 @@
 apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: service-reader
+rules:
+  - apiGroups: [""]
+    resources: ["services"]
+    verbs: ["get", "list", "watch"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: whiteboard-service-access
+  name: default-service-reader
+  namespace: default
 subjects:
   - kind: ServiceAccount
-    name: drprofessorowl
+    name: default
     namespace: default
 roleRef:
   kind: Role
-  name: namespace-reader
+  name: service-reader
   apiGroup: rbac.authorization.k8s.io
