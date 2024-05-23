@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discovery-server
+  labels:
+    app: discovery-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discovery-server
+  template:
+    metadata:
+      labels:
+        app: discovery-server
+    spec:
+      containers:
+        - name: discovery-server
+          image: springcloud/spring-cloud-kubernetes-discoveryserver:2.1.10-SNAPSHOT
+          ports:
+            - containerPort: 8079
+          env:
+            - name: SPRING_CLOUD_KUBERNETES_DISCOVERY_ENABLED
+              value: "true"
+            - name: SPRING_CLOUD_KUBERNETES_CLIENT_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
