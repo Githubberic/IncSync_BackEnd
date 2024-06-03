@@ -9,16 +9,6 @@ dependencies {
     implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.5'
 }
 
-sonar {
-    properties {
-        property "sonar.projectKey", "githubberic_IncSync_BackEnd_Gateway"
-        property "sonar.organization", "githubberic"
-        property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.token", ""
-    }
-}
-
-
 ext {
     set('springCloudVersion', "2023.0.1")
 }

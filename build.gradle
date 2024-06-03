@@ -2,17 +2,9 @@
 plugins {
 	id 'java'
 	id("org.springframework.boot") version "3.2.4"
-	id "org.sonarqube" version "4.4.1.3373"
+	id "io.freefair.lombok" version "8.4"
 }
 
-sonar {
-	properties {
-		property "sonar.projectKey", "githubberic_IncSync_BackEnd"
-		property "sonar.organization", "githubberic"
-		property "sonar.host.url", "https://sonarcloud.io"
-		property "sonar.token", ""
-	}
-}
 
 repositories {
 	mavenCentral()
@@ -28,14 +20,8 @@ subprojects {
 	apply plugin: 'java'
 	apply plugin: 'org.springframework.boot'
 	apply plugin: 'io.spring.dependency-management'
-	apply plugin: "org.sonarqube"
+	apply plugin: "io.freefair.lombok"
 	group 'IncSync_BackEnd'
-
-	sonarqube {
-		properties {
-			property "sonar.sources", "src/main"
-		}
-	}
 
 	repositories {
 		mavenCentral()
