@@ -1,10 +1,13 @@
 package com.auth.controller;
 
+import com.auth.config.MQConfig;
 import com.auth.dto.request.AuthCreateRequestDTO;
 import com.auth.dto.request.AuthLogInRequestDTO;
+import com.auth.dto.request.UserMessage;
 import com.auth.interfaces.AuthServiceInterface;
 import com.auth.mapper.AuthMapper;
 //import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,20 +27,20 @@ public class AuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-//    @Autowired
-//    private RabbitTemplate template;
+    @Autowired
+    private RabbitTemplate template;
 
     @PostMapping("/register")
     public ResponseEntity<String> createUser(@RequestBody AuthCreateRequestDTO user)
     {
         try {
-            Long userAuthId = service.saveAuth(AuthMapper.INSTANCE.toUser(user));
-            //UserMessage userMessage = new UserMessage(userAuthId, "CREATE");
+            Long authId = service.saveAuth(AuthMapper.INSTANCE.toUser(user));
+            UserMessage userMessage = new UserMessage(authId, "onCreateAccount");
 
-//            template.convertAndSend(MQConfig.EXCHANGE,
-//                    MQConfig.ROUTING_KEY, userMessage);
+            template.convertAndSend(MQConfig.EXCHANGE,
+                    MQConfig.ROUTING_KEY, userMessage);
 
-            return new ResponseEntity<>("User registered with ID: " + userAuthId, HttpStatus.CREATED);
+            return new ResponseEntity<>("User registered with ID: " + authId, HttpStatus.CREATED);
         }
         catch(IllegalArgumentException e)
         {
@@ -74,10 +77,10 @@ public class AuthController {
     public ResponseEntity<String> deleteUser(@PathVariable(value = "id") Long id) {
         try {
 
-//            UserMessage userMessage = new UserMessage(id, "DELETE");
-//
-//            template.convertAndSend(MQConfig.EXCHANGE,
-//                    MQConfig.ROUTING_KEY, userMessage);
+            UserMessage userMessage = new UserMessage(id, "onDeleteAccount");
+
+            template.convertAndSend(MQConfig.EXCHANGE,
+                    MQConfig.ROUTING_KEY, userMessage);
 
             service.deleteAuth(id);
 
