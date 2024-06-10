@@ -8,6 +8,7 @@ dependencies {
     implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.12.5'
     implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.5'
     implementation 'org.springframework.boot:spring-boot-starter-actuator:3.3.0'
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.13.0'
 }
 
 ext {
