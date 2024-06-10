@@ -21,3 +21,11 @@ spring:
           uri: lb://whiteboard-service
           predicates:
             - Path=/whiteboard/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    prometheus:
+      enabled: true
