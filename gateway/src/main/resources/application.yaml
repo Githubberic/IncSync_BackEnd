@@ -25,9 +25,13 @@ management:
   endpoints:
     web:
       exposure:
-        include: [ "prometheus" ]
+        include: [ "prometheus", "info", "health" ]
   endpoint:
     prometheus:
       enabled: true
     metrics:
       enabled: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
