@@ -31,6 +31,7 @@ subprojects {
 		testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
 		testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 		implementation group: 'org.springframework', name: 'spring-web', version: '6.1.5'
+		compileOnly 'com.google.cloud.functions:functions-framework-api:1.1.0'
 	}
 
 	test {

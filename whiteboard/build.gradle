@@ -1,6 +1,14 @@
 group 'IncSync_BackEnd'
 version '0.0.1-SNAPSHOT'
 
+repositories {
+    jcenter()
+    mavenCentral()
+}
+configurations {
+    invoker
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:3.2.4'
     implementation  'com.google.firebase:firebase-admin:9.2.0'
