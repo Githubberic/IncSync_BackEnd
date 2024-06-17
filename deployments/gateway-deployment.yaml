@@ -18,6 +18,11 @@ spec:
           ports:
             - containerPort: 8080
           imagePullPolicy: IfNotPresent # Adjust this based on your image availability
+          resources:
+            limits:
+              cpu: 1000m  # Adjust based on performance testing
+            requests:
+              memory: 512Mi  # Adjust based on baseline memory usage
 ---
 apiVersion: v1
 kind: Service

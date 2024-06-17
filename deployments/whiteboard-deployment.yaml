@@ -18,6 +18,11 @@ spec:
           ports:
             - containerPort: 8081
           imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: 500m
+            requests:
+              cpu: 200m
 ---
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating
