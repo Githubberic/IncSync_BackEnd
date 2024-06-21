@@ -14,9 +14,23 @@ minikube service prometheus-server-ext
 
 kubectl edit configmap prometheus-server
 
+    - job_name: gateway
+      static_configs:
+        - targets:
+            - gateway-service:8080
+          labels:
+            __metrics_path__: /actuator/prometheus
+    - job_name: whiteboard
+      static_configs:
+        - targets:
+            - whiteboard-service:8081
+          labels:
+            __metrics_path__: /actuator/prometheus
+
 helm repo add grafana https://grafana.github.io/helm-charts
 
 helm install grafana grafana/grafana
+tnecXCZiu9ZD30njzro5hIbnmCOrfYHFAxNRmzY2
 
 kubectl expose service grafana --type=LoadBalancer --target-port=3000 --port=1099 --name=grafana-np
 
