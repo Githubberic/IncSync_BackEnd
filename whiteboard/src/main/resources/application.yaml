@@ -6,3 +6,13 @@ server:
 websocket:
   hostname: 0.0.0.0
   port: 8082
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [ "prometheus", "info", "health" ]
+  endpoint:
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true

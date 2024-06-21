@@ -39,7 +39,7 @@ public class AuthService implements AuthServiceInterface {
             Auth auth = authOptional.get();
             List<String> claims = new ArrayList<>();
 
-            if (Boolean.TRUE.equals(auth.getIsAdmin())) {
+            if (auth.getIsAdmin()) {
                 claims.add("ADMIN");
             }
 
