@@ -1,3 +1,5 @@
+minikube addons enable metrics-server
+
 kubectl apply -f deployments
 
 kubectl create namespace monitoring
@@ -30,7 +32,9 @@ kubectl edit configmap prometheus-server
 helm repo add grafana https://grafana.github.io/helm-charts
 
 helm install grafana grafana/grafana
-tnecXCZiu9ZD30njzro5hIbnmCOrfYHFAxNRmzY2
+
+kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}"
+MEJtt0NaL3brWZ2xc90aDDGUU3TIro3GFxHhYO1I
 
 kubectl expose service grafana --type=LoadBalancer --target-port=3000 --port=1099 --name=grafana-np
 

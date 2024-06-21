@@ -22,6 +22,10 @@ spring:
           predicates:
             - Path=/whiteboard/**
 management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
   endpoints:
     web:
       exposure:
